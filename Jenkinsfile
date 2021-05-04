@@ -12,7 +12,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            step {
+            steps {
                 script {
                     app = docker.build("linuxcloudenthu/train-schedule")
                     app.inside {
