@@ -26,10 +26,12 @@ pipeline {
                 branch 'master'
             }
             steps {
-                 docker.withRegistry('https://registry.hub.docker.com', 'DockerHub_ID') {
+                Script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'DockerHub_ID') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
-                 } 
+                    } 
+                }
             }
         }
     }
